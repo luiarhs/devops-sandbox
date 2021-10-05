@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'sonar scanner start...'
                 withSonarQubeEnv('sonarcloud') {
-                    sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties -X "
+                    sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=sonar-project.properties -X "
                 }
                 // withSonarQubeEnv () {
                 //     sh """
