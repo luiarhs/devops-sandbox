@@ -17,8 +17,25 @@ pipeline {
             steps {
                 echo 'sonar scanner start...'
                 withSonarQubeEnv('sonarcloud') {
-                    sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.projectKey=luiarhs_devops-sandbox -Dsonar.sources=billing/src/main/java -Dsonar.java.binaries=billing/target/classes"
+                    sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties -X "
                 }
+                // withSonarQubeEnv () {
+                //     sh """
+                //     ${scannerHome}/bin/sonar-scanner
+                //         -Dsonar.host.url=http://sonarqube:9000
+                //         -Dsonar.login=admin
+                //         -Dsonar.password=admin
+                //         -Dsonar.projectKey=someapp-${env.BRANCH_NAME}
+                //         -Dsonar.projectName=someapp-${env.BRANCH_NAME}
+                //         -Dsonar.projectVersion=1.0
+                //         -Dsonar.language=java
+                //         -Dsonar.sources=src/main/java
+                //         -Dsonar.sourceEncoding=UTF-8
+                //         -Dsonar.tests=src/test/java
+                //         -Dsonar.java.binaries=**/target/classes
+                //         -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/**/*
+                //     """
+                // }
             }
             post {
                 success {
