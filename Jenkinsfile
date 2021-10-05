@@ -25,7 +25,6 @@ pipeline {
                         -Dsonar.organization=luiarhs
                         -Dsonar.host.url=https://sonarcloud.io
                         -Dsonar.projectKey=luiarhs_devops-sandbox
-                        -Dsonar.login=238477e4c0871c9e3f5f851e8e5c91d8f3f7bde0
                         -Dsonar.projectName=sonnarcloud-poc
                         -Dsonar.projectName=PoC
                         -Dsonar.projectVersion=1.0
@@ -33,6 +32,7 @@ pipeline {
                         -Dsonar.sources=src/main/java
                         -Dsonar.java.binaries=target/classes
                         -Dsonar.sourceEncoding=UTF-8
+                        -X
                     """
                 }
             }
