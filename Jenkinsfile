@@ -5,19 +5,6 @@ pipeline {
         jdk 'JDK11'
     }
     stages {
-        stage('Git Checkout') {
-            steps {
-                git branch: 'main', credentialsId: 'dp-github-integrator', url: 'https://github.com/ab-inbev-global-martech/devops-sandbox.git'
-            }
-            post {
-                success {
-                    echo 'git checkout executed successfully'
-                }
-                failure {
-                    echo 'git checkout execution failed'
-                }
-            }
-        }
         stage('Sonar analysis by webhook') {
             when {
                 branch 'main'
@@ -26,6 +13,7 @@ pipeline {
                 scannerHome = tool 'sonar-scanner'
             }
             steps {
+                echo 'sonar cloud start'
                 withSonarQubeEnv('sonarcloud') {
                     sh "${scannerHome}/bin/sonar-scanner -X"
                 }
