@@ -5,6 +5,11 @@ pipeline {
         jdk 'JDK11'
     }
     stages {
+        stage('checkout') {
+            steps {
+                git branch: 'main', credentialsId: 'github-luiarhs', url: 'https://github.com/luiarhs/devops-sandbox.git'
+            }
+        }
         stage('Sonar analysis by webhook') {
             when {
                 branch 'main'
@@ -34,7 +39,6 @@ pipeline {
         //     environment {
         //         scannerHome = tool 'sonar-scanner'
         //     }
-        //     whe
         //     steps {
         //         withSonarQubeEnv(installationName: 'sonarcloud-server', credentialsId: 'sonarcloud-secret', envOnly: true) {
         //             // 083c7c9dd594fc14da7a28d6a93d7719fc6e42b4
