@@ -19,7 +19,7 @@ pipeline {
                 // withSonarQubeEnv('sonarcloud') {
                 //     sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=sonar-project.properties -X "
                 // }
-                withSonarQubeEnv () {
+                withSonarQubeEnv ('sonarcloud') {
                     sh """
                     ${scannerHome}/bin/sonar-scanner
                         -Dsonar.host.url=https://sonarcloud.io
