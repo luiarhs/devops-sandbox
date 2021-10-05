@@ -7,13 +7,10 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git branch: 'main', credentialsId: 'github-luiarhs', url: 'https://github.com/luiarhs/devops-sandbox.git'
+                git branch: 'main', credentialsId: 'github-luiarhs-up', url: 'https://github.com/luiarhs/devops-sandbox.git'
             }
         }
         stage('Sonar analysis by webhook') {
-            when {
-                branch 'main'
-            }
             environment {
                 scannerHome = tool 'sonar-scanner'
             }
