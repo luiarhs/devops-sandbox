@@ -15,7 +15,7 @@ pipeline {
                 scannerHome = tool 'sonar-scanner'
             }
             steps {
-                echo 'sonar cloud start'
+                echo 'sonar scanner start...'
                 withSonarQubeEnv('sonarcloud') {
                     sh "${scannerHome}/bin/sonar-scanner -X"
                 }
