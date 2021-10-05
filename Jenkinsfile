@@ -16,12 +16,12 @@ pipeline {
             }
             steps {
                 echo 'sonar scanner start...'
-                // withSonarQubeEnv('sonarcloud') {
-                //     sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=sonar-project.properties -X "
-                // }
-                withSonarQubeEnv ('sonarcloud') {
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.organization=luiarhs -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=luiarhs_devops-sandbox -Dsonar.login=4df569cfc2ffb87004c5d721650c4854ddad4ae3 -Dsonar.projectName=sonnarcloud-poc -Dsonar.projectName=PoC -Dsonar.projectVersion=1.0 -Dsonar.language=java -Dsonar.sources=src/main/java -Dsonar.java.binaries=target/classes -Dsonar.sourceEncoding=UTF-8 -X"
+                withSonarQubeEnv('sonarcloud') {
+                    sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=sonar-project.properties -X "
                 }
+                // withSonarQubeEnv ('sonarcloud') {
+                //     sh "${scannerHome}/bin/sonar-scanner -Dsonar.organization=luiarhs -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=luiarhs_devops-sandbox -Dsonar.login=4df569cfc2ffb87004c5d721650c4854ddad4ae3 -Dsonar.projectName=sonnarcloud-poc -Dsonar.projectName=PoC -Dsonar.projectVersion=1.0 -Dsonar.language=java -Dsonar.sources=src/main/java -Dsonar.java.binaries=target/classes -Dsonar.sourceEncoding=UTF-8 -X"
+                // }
             }
             post {
                 success {
