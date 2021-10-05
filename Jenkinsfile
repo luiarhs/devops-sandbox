@@ -22,6 +22,7 @@ pipeline {
                 withSonarQubeEnv ('sonarcloud') {
                     sh """
                     ${scannerHome}/bin/sonar-scanner
+                        -Dsonar.organization=luiarhs
                         -Dsonar.host.url=https://sonarcloud.io
                         -Dsonar.projectKey=luiarhs_devops-sandbox
                         -Dsonar.login=238477e4c0871c9e3f5f851e8e5c91d8f3f7bde0
