@@ -16,26 +16,24 @@ pipeline {
             }
             steps {
                 echo 'sonar scanner start...'
-                withSonarQubeEnv('sonarcloud') {
-                    sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=sonar-project.properties -X "
-                }
-                // withSonarQubeEnv () {
-                //     sh """
-                //     ${scannerHome}/bin/sonar-scanner
-                //         -Dsonar.host.url=http://sonarqube:9000
-                //         -Dsonar.login=admin
-                //         -Dsonar.password=admin
-                //         -Dsonar.projectKey=someapp-${env.BRANCH_NAME}
-                //         -Dsonar.projectName=someapp-${env.BRANCH_NAME}
-                //         -Dsonar.projectVersion=1.0
-                //         -Dsonar.language=java
-                //         -Dsonar.sources=src/main/java
-                //         -Dsonar.sourceEncoding=UTF-8
-                //         -Dsonar.tests=src/test/java
-                //         -Dsonar.java.binaries=**/target/classes
-                //         -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/**/*
-                //     """
+                // withSonarQubeEnv('sonarcloud') {
+                //     sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=sonar-project.properties -X "
                 // }
+                withSonarQubeEnv () {
+                    sh """
+                    ${scannerHome}/bin/sonar-scanner
+                        -Dsonar.host.url=https://sonarcloud.io
+                        -Dsonar.projectKey=luiarhs_devops-sandbox
+                        -Dsonar.login=238477e4c0871c9e3f5f851e8e5c91d8f3f7bde0
+                        -Dsonar.projectName=sonnarcloud-poc
+                        -Dsonar.projectName=PoC
+                        -Dsonar.projectVersion=1.0
+                        -Dsonar.language=java
+                        -Dsonar.sources=src/main/java
+                        -Dsonar.java.binaries=target/classes
+                        -Dsonar.sourceEncoding=UTF-8
+                    """
+                }
             }
             post {
                 success {
