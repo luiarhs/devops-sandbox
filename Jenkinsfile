@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'sonar scanner start...'
                 withSonarQubeEnv('sonarcloud') {
-                    sh "${scannerHome}/bin/sonar-scanner -X"
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=luiarhs_devops-sandbox -X"
                 }
             }
             post {
