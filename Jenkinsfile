@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo 'sonar scanner start...'
                 withSonarQubeEnv('sonarcloud') {
-                     sh '$SCANNER_HOME/bin/sonar-scanner -Dproject.settings=sonar.properties -Dsonar.projectKey=devops-sandbox-$BRANCH_NAME -Dsonar.login=$ACCESS_TOKEN -X'
+                     sh '$SCANNER_HOME/bin/sonar-scanner -Dproject.settings=sonar.properties -Dsonar.projectKey=devops-sandbox-dev -Dsonar.login=$ACCESS_TOKEN -X'
                 }
             }
             post {
