@@ -14,7 +14,7 @@ pipeline {
             environment {
                 BRANCH_NAME = "${env.BRANCH_NAME}"
                 SCANNER_HOME = tool 'sonar-scanner'
-                ACCESS_TOKEN = credentials('sonarcloud-token-poc')
+                ACCESS_TOKEN = credentials('sonarcloud-poc-token')
             }
             steps {
                 echo 'sonar scanner start...'
